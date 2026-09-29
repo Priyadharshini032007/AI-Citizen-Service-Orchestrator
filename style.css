@@ -1,0 +1,323 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f7fb;
+    color: #172033;
+}
+
+.app {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+/* SIDEBAR */
+
+.sidebar {
+    width: 240px;
+    background: #101a33;
+    color: white;
+    padding: 25px 15px;
+    position: fixed;
+    height: 100vh;
+}
+
+.sidebar h2 {
+    margin-bottom: 35px;
+}
+
+.sidebar h2 span {
+    color: #6f85ff;
+}
+
+.sidebar button {
+    width: 100%;
+    padding: 13px;
+    margin: 6px 0;
+    border: none;
+    border-radius: 10px;
+    background: transparent;
+    color: #d7def5;
+    text-align: left;
+    cursor: pointer;
+}
+
+.sidebar button:hover {
+    background: #273766;
+}
+
+
+/* MAIN */
+
+.main {
+    margin-left: 240px;
+    width: calc(100% - 240px);
+}
+
+header {
+    height: 70px;
+    background: white;
+    border-bottom: 1px solid #ddd;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+header span {
+    background: #eef2ff;
+    color: #3157d5;
+    padding: 7px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+
+/* CONTENT */
+
+.page {
+    display: none;
+    padding: 30px;
+}
+
+.page.active {
+    display: block;
+}
+
+
+/* HERO */
+
+.hero {
+    background: linear-gradient(
+        135deg,
+        #172554,
+        #3157d5
+    );
+
+    color: white;
+
+    padding: 45px;
+
+    border-radius: 20px;
+
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    max-width: 700px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+
+/* BUTTON */
+
+button {
+    background: #3157d5;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 9px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    opacity: .9;
+}
+
+
+/* CARDS */
+
+.card {
+    background: white;
+    padding: 22px;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0,0,0,.06);
+    margin-bottom: 20px;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 18px;
+
+    margin-bottom: 30px;
+}
+
+.stats h2 {
+    font-size: 30px;
+    margin-top: 8px;
+}
+
+
+/* SERVICES */
+
+.services {
+    display: grid;
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 20px;
+}
+
+
+/* PROGRESS */
+
+.progress {
+    height: 8px;
+    background: #e8ebf2;
+    border-radius: 10px;
+    margin: 15px 0;
+}
+
+.progress div {
+    height: 100%;
+    background: #3157d5;
+    border-radius: 10px;
+}
+
+
+/* STATUS */
+
+.status {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.blue {
+    background: #eef2ff;
+    color: #3157d5;
+}
+
+.yellow {
+    background: #fff3d6;
+    color: #a66500;
+}
+
+
+/* TEXTAREA */
+
+textarea {
+    width: 100%;
+    height: 160px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    margin: 15px 0;
+    resize: vertical;
+}
+
+
+/* SERVICE BOX */
+
+.service-box {
+    border: 1px solid #e1e5ec;
+    padding: 18px;
+    border-radius: 12px;
+    margin: 15px 0;
+}
+
+.service-box li {
+    margin: 8px 0;
+}
+
+
+/* AI */
+
+.ai-insight {
+    background: #f0f4ff;
+    border-left: 4px solid #3157d5;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 8px;
+}
+
+
+/* DOCUMENT */
+
+.document {
+    display: flex;
+    justify-content: space-between;
+    padding: 18px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.verified {
+    color: green;
+    font-weight: bold;
+}
+
+.required {
+    color: #b66a00;
+    font-weight: bold;
+}
+
+
+/* NOTIFICATION */
+
+.notification {
+    padding: 18px;
+    border: 1px solid #ffe1a6;
+    background: #fffaf0;
+    border-radius: 10px;
+    margin-bottom: 12px;
+}
+
+
+/* HIDDEN */
+
+.hidden {
+    display: none;
+}
+
+
+/* MOBILE */
+
+@media(max-width: 800px) {
+
+    .sidebar {
+        width: 70px;
+    }
+
+    .sidebar h2 {
+        font-size: 0;
+    }
+
+    .sidebar button {
+        font-size: 0;
+    }
+
+    .sidebar button:first-letter {
+        font-size: 20px;
+    }
+
+    .main {
+        margin-left: 70px;
+        width: calc(100% - 70px);
+    }
+
+    .stats,
+    .services {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 28px;
+    }
+}

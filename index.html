@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CivicFlow AI</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <h2>CivicFlow <span>AI</span></h2>
+
+            <button onclick="showPage('dashboard')">
+                🏠 Dashboard
+            </button>
+
+            <button onclick="showPage('request')">
+                🤖 New Request
+            </button>
+
+            <button onclick="showPage('applications')">
+                📋 My Applications
+            </button>
+
+            <button onclick="showPage('documents')">
+                📄 Documents
+            </button>
+
+            <button onclick="showPage('notifications')">
+                🔔 Notifications
+            </button>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+        <main class="main">
+
+            <header>
+                <h3>CivicFlow AI</h3>
+                <span>DEMO MODE</span>
+            </header>
+
+
+            <!-- DASHBOARD -->
+            <section id="dashboard" class="page active">
+
+                <div class="hero">
+
+                    <h1>Government Services, Simplified by AI</h1>
+
+                    <p>
+                        Describe what you need in your own words.
+                        Our AI identifies services, documents,
+                        departments and next steps.
+                    </p>
+
+                    <button onclick="showPage('request')">
+                        Start a New Request
+                    </button>
+
+                </div>
+
+
+                <div class="stats">
+
+                    <div class="card">
+                        <p>Active Requests</p>
+                        <h2>2</h2>
+                    </div>
+
+                    <div class="card">
+                        <p>Pending Actions</p>
+                        <h2 id="pendingCount">2</h2>
+                    </div>
+
+                    <div class="card">
+                        <p>Documents Verified</p>
+                        <h2 id="verifiedCount">3</h2>
+                    </div>
+
+                    <div class="card">
+                        <p>Completed Services</p>
+                        <h2>4</h2>
+                    </div>
+
+                </div>
+
+
+                <h2>Active Government Requests</h2>
+
+                <div class="services">
+
+                    <div class="card">
+
+                        <h3>🏠 Address Update</h3>
+
+                        <p>Identity / Address Services</p>
+
+                        <div class="progress">
+                            <div style="width:70%"></div>
+                        </div>
+
+                        <p>70% Complete</p>
+
+                        <span class="status blue">
+                            In Progress
+                        </span>
+
+                    </div>
+
+
+                    <div class="card">
+
+                        <h3>📄 Income Certificate</h3>
+
+                        <p>Revenue Services</p>
+
+                        <div class="progress">
+                            <div id="incomeProgress"
+                                 style="width:45%">
+                            </div>
+                        </div>
+
+                        <p id="incomePercentage">
+                            45% Complete
+                        </p>
+
+                        <span id="incomeStatus"
+                              class="status yellow">
+
+                            Action Required
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- NEW REQUEST -->
+            <section id="request" class="page">
+
+                <h1>AI Citizen Assistant</h1>
+
+                <p>
+                    Tell us what you need help with.
+                </p>
+
+
+                <div class="card">
+
+                    <h3>Describe your requirement</h3>
+
+                    <textarea
+                        id="userRequest"
+                        placeholder="Example: I recently moved to Chennai and need to update my address and apply for an income certificate.">
+                    </textarea>
+
+                    <button onclick="analyzeRequest()">
+                        Analyze My Request
+                    </button>
+
+                </div>
+
+
+                <!-- AI PROCESSING -->
+
+                <div id="processing"
+                     class="card hidden">
+
+                    <h2>🤖 AI is analyzing...</h2>
+
+                    <p>Understanding request... ✓</p>
+
+                    <p>Identifying services... ✓</p>
+
+                    <p>Mapping departments... ✓</p>
+
+                    <p>Checking documents... ✓</p>
+
+                    <p>Building workflow... ✓</p>
+
+                </div>
+
+
+                <!-- AI RESULT -->
+
+                <div id="result"
+                     class="hidden">
+
+                    <div class="card">
+
+                        <h2>
+                            🧠 2 Government Services Identified
+                        </h2>
+
+
+                        <div class="service-box">
+
+                            <h3>🏠 Address Update</h3>
+
+                            <p>
+                                Department:
+                                Identity / Address Services
+                            </p>
+
+                            <ul>
+                                <li>Identity Proof ✓</li>
+                                <li>Address Proof ✓</li>
+                                <li>Photograph ✓</li>
+                            </ul>
+
+                        </div>
+
+
+                        <div class="service-box">
+
+                            <h3>📄 Income Certificate</h3>
+
+                            <p>
+                                Department:
+                                Revenue Services
+                            </p>
+
+                            <ul>
+                                <li>Identity Proof ✓</li>
+                                <li>Address Proof ✓</li>
+                                <li>Photograph ✓</li>
+                                <li id="incomeDocument">
+                                    Income Proof ⚠
+                                </li>
+                            </ul>
+
+                        </div>
+
+
+                        <div class="ai-insight">
+
+                            🧠 <b>Smart Document Reuse</b>
+
+                            <p>
+                                Identity Proof, Address Proof
+                                and Photograph can be reused
+                                across both services.
+                            </p>
+
+                        </div>
+
+
+                        <div class="ai-insight">
+
+                            🔗 <b>Dependency Detected</b>
+
+                            <p>
+                                Address verification may be
+                                required before final processing.
+                            </p>
+
+                        </div>
+
+
+                        <button onclick="showPage('documents')">
+
+                            Continue to Documents
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- APPLICATIONS -->
+
+            <section id="applications"
+                     class="page">
+
+                <h1>Application Tracking</h1>
+
+                <div class="services">
+
+                    <div class="card">
+
+                        <h2>🏠 Address Update</h2>
+
+                        <p>Identity / Address Services</p>
+
+                        <hr>
+
+                        <p>✓ Request Submitted</p>
+                        <p>✓ Documents Verified</p>
+                        <p>🔵 Application Processing</p>
+                        <p>⚪ Department Review</p>
+                        <p>⚪ Completed</p>
+
+                    </div>
+
+
+                    <div class="card">
+
+                        <h2>📄 Income Certificate</h2>
+
+                        <p>Revenue Services</p>
+
+                        <hr>
+
+                        <p>✓ Request Created</p>
+                        <p>✓ Documents Collected</p>
+                        <p id="applicationStatus">
+                            🔵 Application Preparation
+                        </p>
+
+                        <p>⚪ Submission</p>
+                        <p>⚪ Department Review</p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- DOCUMENTS -->
+
+            <section id="documents"
+                     class="page">
+
+                <h1>Smart Document Center</h1>
+
+                <div class="card">
+
+                    <div class="document">
+                        <b>Identity Proof</b>
+                        <span class="verified">
+                            ✓ Verified
+                        </span>
+                    </div>
+
+                    <div class="document">
+                        <b>Address Proof</b>
+                        <span class="verified">
+                            ✓ Verified
+                        </span>
+                    </div>
+
+                    <div class="document">
+                        <b>Photograph</b>
+                        <span class="verified">
+                            ✓ Verified
+                        </span>
+                    </div>
+
+                    <div class="document">
+
+                        <b>Income Proof</b>
+
+                        <span id="documentStatus"
+                              class="required">
+
+                            ⚠ Required
+
+                        </span>
+
+                    </div>
+
+
+                    <br>
+
+                    <input
+                        type="file"
+                        id="incomeFile"
+                        accept=".pdf,.jpg,.png">
+
+                    <br><br>
+
+                    <button onclick="verifyDocument()">
+
+                        Upload & Verify
+
+                    </button>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- NOTIFICATIONS -->
+
+            <section id="notifications"
+                     class="page">
+
+                <h1>🔔 Action Center</h1>
+
+                <div id="notificationBox"
+                     class="card">
+
+                    <div class="notification">
+
+                        ⚠️ <b>Income Proof Required</b>
+
+                        <p>
+                            Upload your income proof
+                            to continue the application.
+                        </p>
+
+                    </div>
+
+                    <div class="notification">
+
+                        🔗 <b>AI Document Reuse</b>
+
+                        <p>
+                            3 documents are shared
+                            across both services.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
